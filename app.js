@@ -1,28 +1,24 @@
 const bodyParser = require("body-parser");
 const express = require("express");
 const ejs = require("ejs")
+const date = require(__dirname+"/date.js")
 
 const app = express();
 app.use(bodyParser.urlencoded ({extended:true}))
 app.use(express.static(__dirname+'/public'));
 app.set('view engine', "ejs");
-var iteams = ["Buy foods","Cook food","Eat food"];
+
+
+const iteams = ["Self Shopping"];
 app.get("/",function(req,res){
-  var today = new Date()
-  var option ={
-    week : "long",
-    day : "numeric",
-    month : "long",
-    year : "numeric"
-  }
-  var day = today.toLocaleDateString("en-us" , option)
-  res.render("list",{kindOfDay : day , newListIteams: iteams})
+    const day = date.getDay();
+    const onDate = date.getDate();
+  res.render("list",{kindOfDay : day ,onDate : onDate, newListIteams: iteams})
 })
 
 
 app.post("/",function(req,res){
-//  console.log(req.body.newIteam)
- var iteam = req.body.newIteam
+ const iteam = req.body.newIteam
  iteams.push(iteam) 
  res.redirect("/")
 })

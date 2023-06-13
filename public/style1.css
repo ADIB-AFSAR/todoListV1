@@ -19,7 +19,7 @@
 
 }
 #heading{
- margin-top: 5rem;
+ margin-top: 2rem;
  /* border-radius: 1.5rem; */
  background-color:#c3c0c100;
  margin-bottom: 2rem;
@@ -31,10 +31,10 @@ p{
   /* background-color: #e61b69; */
   font-size: 18px;
   /* border-bottom: 1px solid; */
-  height: 1rem;
+  /* height: 1rem; */
   /* margin-top: -40px; */
   padding-bottom: 15px;
-  padding-top: 1rem;
+  padding-top: 10px;
   text-align: center;
 }
 .item{
@@ -72,6 +72,7 @@ button{
   font-size: 20px;
   font-weight:lighter;
   cursor: pointer;
+  background-color: darkgrey;
 }
 #checkbox{
    background-color: #e61b69;
