@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style1.css" type="text/css">
+</head>
+<body>
+    <div class="box" id="heading">
+    <h1>Todo List - <%=kindOfDay%></h1>
+    
+     
+    </div>
+       <div class="box">
+        <h3 class="task">Add Your Tasks Below</h3>
+                <%  for (var i=0 ; i<newListIteams.length ; i++){  %>
+
+                <div class="item">
+                 <input id="checkbox" type="checkbox">
+                 <p> <%=newListIteams[i]%></p>
+                </div>
+               <% } %>
+            
+            <form class="item1" action="/" method="post">
+              <input type="text" name="newIteam" placeholder="add new item" autocomplete="off">
+              <button type="submit" name="button">+</button>
+            </form>
+        </div>
+        <div>
+          <p class="ad">
+             ©️ ADIB AFSAR - 2023 
+          </p>
+      </div>
+</body>
+</html> 
