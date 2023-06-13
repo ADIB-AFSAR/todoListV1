@@ -3,24 +3,19 @@
   background: linear-gradient(23deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
-	/* height: 100vh; */
 }
 .box{ 
-  /* display: flex; */
-  /* flex-direction: column; */
   text-align: center;
   background-color: #3fa49e0a;
   width: 30rem;
   margin: auto;
   border:  solid #13010c7e;
-  /* border-radius: 9px solid; */
  box-shadow: 10px 10px 10px rgb(66, 63, 63);
  opacity: .9;
 
 }
 #heading{
  margin-top: 2rem;
- /* border-radius: 1.5rem; */
  background-color:#c3c0c100;
  margin-bottom: 2rem;
  font-variant: small-caps;
@@ -28,11 +23,7 @@
   
 }
 p{
-  /* background-color: #e61b69; */
   font-size: 18px;
-  /* border-bottom: 1px solid; */
-  /* height: 1rem; */
-  /* margin-top: -40px; */
   padding-bottom: 15px;
   padding-top: 10px;
   text-align: center;
