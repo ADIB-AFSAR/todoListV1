@@ -6,8 +6,8 @@
     "lodash": "^4.17.21",
     "mongoose": "^7.4.5",
     "main": "index.js",
-   "scripts": {
-    "start": "node index.js"
-  }
+   "scripts":{
+    "start":"index.js"
+   }
   }
   }
