@@ -1,6 +1,7 @@
 const bodyParser = require("body-parser");
 const express = require("express");
 const ejs = require("ejs");
+const main = require('main@1.0.0');
 const mongoose =  require("mongoose");
 const _ = require("lodash")
 const date = require(__dirname+"/date.js")
