@@ -2,6 +2,7 @@ const bodyParser = require("body-parser");
 const express = require("express");
 const ejs = require("ejs");
 const mongoose =  require("mongoose");
+const err = new MongooseError('An error occurred');
 const _ = require("lodash")
 const date = require(__dirname+"/date.js")
 const app = express();
