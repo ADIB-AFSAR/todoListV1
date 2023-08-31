@@ -10,7 +10,7 @@ app.use(express.static(__dirname+'/public'));
 app.set('view engine', "ejs");
 
 
-mongoose.connect("mongodb+srv://afsaradib786:RasBVfh5KcaAnxws@cluster0.ktocygs.mongodb.net/todolistDB")
+mongoose.connect("mongodb://localhost:27017/todolistDB")
  .then(function(rs){
    console.log("connected to mongodb server!!");
  }).catch(function(err){
@@ -30,21 +30,18 @@ mongoose.connect("mongodb+srv://afsaradib786:RasBVfh5KcaAnxws@cluster0.ktocygs.m
   name:"start wrting from below",
 })
   
-const defaultItems = [item1];
+const defaultItems = [item1,item2];
  
 
 
 app.get("/",function(req,res){
     const day = date.getDay();
     const onDate = date.getDate();
-
-
-    
-    
-    Item.find({}).then(function(foundItems){
-      if(foundItems.length==0){
-        Item.insertMany(defaultItems).then(function(){console.log("documents inserted")})
- .catch(function(){console.log("insertion failed");})
+    Item.find({}).then((foundItems)=>{
+      if(foundItems.length===0){
+        Item.insertMany(defaultItems).then(()=>{console.log("documents inserted");
+        })
+ .catch((error)=>{console.log(error);})
       res.redirect("/")
       }else{
        res.render("list",{kindOfDay:day,onDate:onDate,listTitle:"Today",newListItems:foundItems})}
@@ -57,23 +54,26 @@ const listSchema = {
 }
 const List = mongoose.model("List",listSchema)
 
-app.post("/", async function(req,res){
+app.post("/",  function(req,res){
   const addedIteam = req.body.newIteam;
   const listName = req.body.list;
+   
    const item = new Item ({
      name:addedIteam
-   });
+   })
  
-   if(listName==="Today"){
-   item.save();
-    res.redirect("/")}else{
-    List.findOne({name:listName}).then((foundList)=>{
-     foundList.items.push(item);
+      if(listName==="Today"){
+       item.save();
+       res.redirect("/")}
+       else{
+       List.findOne({name:listName}).then((foundList)=>{
+       foundList.items.push(item);
      foundList.save()
      res.redirect("/"+listName)
     }).catch((err)=>{console.log(err);})
-  }
- })
+ }})
+
+
 
 
  app.post("/delete",function( req,res) {
@@ -86,9 +86,9 @@ if(listName === "Today"){
 });
   
 }else{
-    List.findOneAndUpdate({name:listName},{$pull:{items:{_id: checkedId}}}).catch(err);{
-      res.redirect("/"+listName)
-    }
+    List.findOneAndUpdate({name:listName},{$pull:{items:{_id: checkedId}}}).then(()=>{res.redirect("/"+listName)}).catch((err)=>{console.log("err")})
+      
+    
 }})
 
 
