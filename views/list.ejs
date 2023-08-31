@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/style1.css" type="text/css">
 </head>
 <body>
-    <div class="box" id="heading">
+    <div class="box " id="heading">
     <h1>Todo List - <%=listTitle%></h1>
     <h2><%=kindOfDay%>,<%=onDate%></h2>
     
@@ -15,17 +15,18 @@
     </div>
        <div class="box">
         <h3 class="task">Add Your Tasks Below</h3>
-
+        <% newListItems.forEach(item=>{ %>
         <form class="item2" action="/delete" method="post" >
-          <% newListItems.forEach((item)=>{ %>
+          
 
                 <div class="item">
                  <input id="checkbox" value="<%=item._id%>" type="checkbox" name="checkbox" onchange="this.form.submit()">
                  <p><%= item.name %></p>
                 </div>
                 <input type="hidden" value="<%=listTitle%>" name="listName">
-               <% }) %>
+              
             </form>
+             <% }) %>
             <form class="item1" action="/" method="post">
               <input type="text" name="newIteam" placeholder="Click here to add new item" autocomplete="off">
               <button type="submit" value="<%=listTitle%>" name="list">+</button>
