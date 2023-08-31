@@ -10,7 +10,7 @@ app.use(express.static(__dirname+'/public'));
 app.set('view engine', "ejs");
 
 
-mongoose.connect("mongodb://localhost:27017/todolistDB")
+mongoose.connect("mongodb+srv://adibxafsar:dBufHttzon5RjQ7k@todolist.xpdyucv.mongodb.net/todoListDB")
  .then(function(rs){
    console.log("connected to mongodb server!!");
  }).catch(function(err){
