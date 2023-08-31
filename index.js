@@ -47,7 +47,6 @@ app.get("/",function(req,res){
        res.render("list",{kindOfDay:day,onDate:onDate,listTitle:"Today",newListItems:foundItems})}
     })
 })
-
 const listSchema = {
   name: String,
   items: [itemsSchema]
