@@ -11,7 +11,7 @@ app.set('view engine', "ejs");
 
 
 mongoose.connect("mongodb+srv://adibxafsar:dBufHttzon5RjQ7k@todolist.xpdyucv.mongodb.net/todoListDB")
- .then(function(rs){
+ .then(function(){
    console.log("connected to mongodb server!!");
  }).catch(function(err){
   console.log("connection failed")
